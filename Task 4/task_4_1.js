@@ -51,7 +51,10 @@ const promises = [];
 for(let i = 0; i < promisesNumber; i++) {
 	const randomTimeout = getRandom();
 	promises.push(
-  	new Promise(resolve => setTimeout(() => resolve([i+1, randomTimeout]), randomTimeout * 1000)).then(data => console.log(`Function #${data[0]} executed in ${data[1]} seconds`)));
+      new Promise(resolve => setTimeout(() => resolve([i+1, randomTimeout]), randomTimeout * 1000))
+      .then(data => {
+        console.log(`Function #${data[0]} executed in ${data[1]} seconds`);
+        return data[1];
+      }));
 }
-
-Promise.all(promises).then(result=> console.log(`Well Done all ${promisesNumber} functions are done!`));
+Promise.all(promises).then(result => console.log(`Well Done all ${promisesNumber} functions are done in ${Math.max(...result)} seconds`));

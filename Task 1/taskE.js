@@ -1,15 +1,13 @@
 // Е) Создать свою реализацию функции reduce для массивов
 
-Array.prototype.reduce = function(combiner, initialValue) {
-	let accumulator = (initialValue === undefined) ? undefined : initialValue;
+Array.prototype.reduce = function(callback, initializer, accumulator) {
+    accumulator = initializer === undefined ? 0 : initializer;
+  
     for (let i = 0; i < this.length; i++) {
-        if (accumulator !== undefined)
-            accumulator = combiner.call(undefined, accumulator, this[i], i, this);
-        else
-            accumulator = this[i];
+      accumulator = callback(accumulator, this[i]);
     }
     return accumulator;
-}
+  }
 
 // tests
 

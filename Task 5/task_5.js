@@ -17,13 +17,13 @@ Promise.all([loadVideosAsync(), loadMetaAsync()]).then(result => DoSomething(res
 //     return promise;
 // };
 
-function anAsyncCall() {
-	return new Promise(resolve => {
- 		doSomethingAsync().then(() => resolve(somethingComplicated()));
-	});
+ function anAsyncCall() {
+    var promise = doSomethingAsync();
+    promise.then(function() {
+        somethingComplicated();
+        return promise;
+    });
 };
-
-doSomethingAsync().then(() => somethingComplicated());
 
 // 3) 
 // db.getAllDocs().then(function (result) {

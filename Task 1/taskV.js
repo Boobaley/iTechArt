@@ -1,9 +1,9 @@
 // В) Создать свою реализацию функции filter для массивов
 
-Array.prototype.filter = function(predicateFunction, context) {
+Array.prototype.filter = function(predicateFunction) {
 	newArr = [];
 	for (let i = 0; i < this.length; i++) {
-		if (predicateFunction.call(context, this[i], i, this)) {
+		if (predicateFunction(this[i], i, this)) {
 			newArr.push(this[i]);
 		}
 	}

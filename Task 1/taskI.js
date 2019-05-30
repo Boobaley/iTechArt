@@ -15,8 +15,8 @@ var videos = [{
 }];
 
    const newObject = videos.reduce((obj, item) => {
-    obj[item.id] = item.title
-    return obj
+    obj[item.id] = item.title;
+    return obj;
    }, {})
 
 console.log(newObject);

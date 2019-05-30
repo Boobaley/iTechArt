@@ -3,18 +3,17 @@
 
 const dButton = document.getElementById('dButton');
 
-function debounce(func, time) {
-	return function (args) {
-		let previousCall = this.lastCall;
-		this.lastCall = Date.now();
-		if (previousCall && ((this.lastCall  -  previousCall) <= time)) {
-			clearTimeout(this.lastCallTimer);
-		}
-		this.lastCallTimer = setTimeout(() => func(args), time);
-	}
-}
+// dButton.addEventListener('click', debounce(() => console.log('Hello World'), 5000))
+let timeOutId;
 
-dButton.addEventListener('click', debounce(() => console.log('Hello World'), 5000))
+dButton.addEventListener('click', () => {
+	if (timeOutId) {
+		clearTimeout(timeOutId);
+		timeOutId = undefined;
+	} else {
+		timeOutId = setTimeout(() => console.log('Hello World'), 5000);
+	}
+})
 
 // Б) Создать кнопку по нажатию на которую будет выводить в консоль ‘You are welcome! ’ каждые 3 секунды, пока не нажмем на кнопку еще раз
 
@@ -27,7 +26,7 @@ button.addEventListener('click', () => {
 		clearInterval(timerId);
 	  	timerId = undefined;
 	} else {
-		timerId = setInterval(()=>console.log('You are welcome!'), 3000);
+		timerId = setInterval(() => console.log('You are welcome!'), 3000);
 	}
 })
 
@@ -48,7 +47,18 @@ thirdButton.addEventListener('click', () => {
 /* Г) Создать поле для ввода текста которое будет выводить в консоль введённый текст, через 1 
 секунду после того как пользователь перестал печатать */
 
-const input = document.getElementById('input')
+function debounce(func, time) {
+	return function (args) {
+		let previousCall = this.lastCall;
+		this.lastCall = Date.now();
+		if (previousCall && ((this.lastCall  -  previousCall) <= time)) {
+			clearTimeout(this.lastCallTimer);
+		}
+		this.lastCallTimer = setTimeout(() => func(args), time);
+	}
+}
+
+const input = document.getElementById('input');
 
 input.addEventListener('input', debounce(() =>  {
 	let val = input.value;

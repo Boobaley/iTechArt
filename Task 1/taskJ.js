@@ -2,6 +2,6 @@
 
 var ratings = [2, 3, 1, 4, 5];
 
-const newRatings = ratings.reduce((prev, cur) => biggest = prev > cur ? prev : cur)
+const newRatings = ratings.reduce((prev, cur) => prev > cur ? prev : cur)
 
 console.log(newRatings);
