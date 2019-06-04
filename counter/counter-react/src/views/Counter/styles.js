@@ -40,7 +40,11 @@ const buttonsWrapper = {
 
 const counterWrapper = {
     padding: 50,
-    backgroundColor: '#883e3e'
+    backgroundColor: '#883e3e',
+    width: 320,
+    margin: '0 auto',
+    borderRadius: 70,
+    marginTop: 50
 }
 
 export {output, buttonsWrapper, counterWrapper};
