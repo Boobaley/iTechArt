@@ -14,12 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ContainedButtons(props) {
   const classes = useStyles();
-
-  return (
-    <div>
-      <Button variant="contained" color="primary" className={classes.button}{...props}></Button>
-    </div>
-  );
+  return <Button variant="contained" color="primary" className={classes.button}{...props}></Button>;
 }
 
 const buttonsWrapper = {
@@ -29,4 +24,9 @@ const buttonsWrapper = {
     borderRadius: 25
 };
 
-export {buttonsWrapper};
+const parentCounterWrapper = {
+    margin: '0 auto 50px auto',
+    width: 'max-content'
+};
+
+export {buttonsWrapper, parentCounterWrapper};
