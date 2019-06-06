@@ -6,21 +6,16 @@ import {output, buttonsWrapper, counterWrapper} from './styles';
 const Counter = (props) => {
     return (
       <div style={counterWrapper}>
-        <div style={output}>{props.counterValue}</div>
+        <div style={output}>{props.value}</div>
         <div style={buttonsWrapper}>
-            <Button onClick={props.decrement}>DECREMENT</Button>
+            <Button onClick={props.remove}>DECREMENT</Button>
             <Button onClick={props.reset}>RESET</Button>
-            <Button onClick={props.increment} >INCREMENT</Button>
+            <Button onClick={props.add}>INCREMENT</Button>
         </div>
       </div>
     )
 }
 
-Counter.propTypes = {
-    counterValue: PropTypes.number.isRequired,
-    decrement: PropTypes.func.isRequired,
-    reset: PropTypes.func.isRequired,
-    increment: PropTypes.func.isRequired,
-}
+// s
 
 export default Counter;

@@ -6,54 +6,105 @@ class ParentContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            counters: 1
+            counters: [{id: 0, value: 0}],
+            lastId: 0
+        };
+    };
+
+    increment = (id) => {
+        console.log(this.state.counters[id].value);
+        const newState = this.state.counters.map(item => {
+            if (id === item.id) {
+                let value = item.value + 1;
+                return {id, value};
+            }
+            return item;
+        });
+        this.setState({counters: newState})
+    };
+
+    decrement = (id) => {
+        const newState = this.state.counters.map(item => {
+            let value = item.value;
+            if (id === item.id) {
+                if (value > 0) {
+                    value--;
+                    return {id, value}
+                } else {
+                    return {id, value}
+                }
+            }
+            return item;
+        });
+        this.setState({counters: newState})
+    };
+
+    resetCounter = (id) => {
+        const newState = this.state.counters.map(item => {
+            let value = item.value;
+            if (id === item.id) {
+                value = 0;
+                return {id, value};
+            }
+            return item;
+        });
+        this.setState({counters: newState})
+    };
+
+    addCounter = () => {
+        let newState = this.state.counters.map(item => {
+            if (item.value % 2 === 0 && item.value !== 0) {
+                return {id: item.id, value: item.value + 1};
+            };
+            return item;
+        });
+        let id = this.state.lastId + 1;
+        newState.push({id, value: 0});
+        this.setState({counters: newState, lastId: id});
+    };
+    
+    removeCounter = () => {
+        let newState = this.state.counters.map(item => {
+            if (item.value % 2 !== 0) {
+                return {id: item.id, value: item.value -1};
+            }
+            return item;
+        });
+        let id = this.state.lastId - 1;
+        if (newState.length > 1) {
+            newState.pop();
         }
+        this.setState({counters: newState, lastId: id});
+    };
 
-        this.handleAdd = this.handleAdd.bind(this);
-        this.handleDelette = this.handleDelette.bind(this);
-        this.handleReset = this.handleReset.bind(this);
+    generaReset = () => {
+        let newState = this.state.counters;
+        newState.splice(1);
+        newState[0].value = 0;
+        this.setState({counters: newState, lastId: 0});
     }
 
-    handleAdd() {
-        this.setState({counters: this.state.counters + 1});
-    }
-
-    handleDelette() {
-        if (this.state.counters > 1) {
-            this.setState({counters: this.state.counters - 1})
-        } else {
-            this.setState({counters: 1})
-        } 
-    }
-
-    handleReset() {
-        this.setState({counters: 1})
-    }
+    renderCounters = () => {
+        return this.state.counters.map((item) => {
+            return <CounterContainer 
+            value={item.value} 
+            id={item.id} 
+            key={item.id} 
+            increment={this.increment}
+            decrement={this.decrement}
+            reset={this.resetCounter}
+            />
+        });
+    };
 
     render() {
-        const counter = <CounterContainer/>;
-        let counters = [];
-
-        for (let i = 0; i < this.state.counters; i++) {
-            counters.push(counter);
-        }
-       
         return (
             <div>
-                <CounterOfCounters 
-                    add={this.handleAdd}
-                    delette={this.handleDelette}
-                    reset={this.handleReset}
-                />
-                {counters.map((item, id) => 
-                    <div key={id}>
-                        {item}
-                    </div>
-                )}
+                <CounterOfCounters add={this.addCounter} remove={this.removeCounter} reset={this.generaReset}/>
+                {this.renderCounters()}
             </div>
-           
         );
-    }
-}
+    };
+};
 
 export default ParentContainer;

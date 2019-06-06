@@ -6,9 +6,9 @@ const ParentCounter = (props) => {
     return (
         <div style={parentCounterWrapper} >
             <div style={buttonsWrapper}>
-               <Button onClick={props.delette}>DELETE TIMER</Button> 
+               <Button onClick={props.remove}>DELETE TIMER</Button> 
                <Button onClick={props.reset}>RESET</Button> 
-               <Button onClick={props.add} >ADD TIMER</Button> 
+               <Button onClick={props.add}>ADD TIMER</Button> 
             </div>
         </div>
     )
