@@ -12,7 +12,6 @@ class ParentContainer extends React.Component {
     };
 
     increment = (id) => {
-        console.log(this.state.counters[id].value);
         const newState = this.state.counters.map(item => {
             if (id === item.id) {
                 let value = item.value + 1;
