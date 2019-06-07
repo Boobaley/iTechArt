@@ -14,9 +14,23 @@ class CounterContainer extends React.Component {
       this.props.reset(this.props.id);
     };
 
+    componentDidMount() {
+        console.log(`Component # ${this.props.id + 1} rendered`);
+    }
+
     shouldComponentUpdate(nextProps) {
-        return this.props.value !== nextProps.value;
+        if (this.props.value !== nextProps.value) {
+            console.log(`Component # ${this.props.id + 1} changed`);
+            return true;
+        } else {
+            console.log(`Component # ${this.props.id + 1} not changed`);
+            return false;
+        }
     };
+    
+    componentWillUnmount() {
+        console.log(`Component # ${this.props.id + 1} unmounted`);
+    }
   
     render() {
       return (

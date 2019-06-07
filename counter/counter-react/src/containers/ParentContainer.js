@@ -51,29 +51,31 @@ class ParentContainer extends React.Component {
     };
 
     addCounter = () => {
-        let newState = this.state.counters.map(item => {
+        const newState = this.state.counters.map(item => {
             if (item.value % 2 === 0 && item.value !== 0) {
                 return {id: item.id, value: item.value + 1};
             };
             return item;
         });
-        let id = this.state.lastId + 1;
+        const id = this.state.lastId + 1;
         newState.push({id, value: 0});
         this.setState({counters: newState, lastId: id});
     };
     
     removeCounter = () => {
-        let newState = this.state.counters.map(item => {
-            if (item.value % 2 !== 0) {
+        const newState = this.state.counters.map(item => {
+            if (item.value % 2 !== 0 && item.value !== 0) {
                 return {id: item.id, value: item.value -1};
             }
             return item;
         });
-        let id = this.state.lastId - 1;
+        const id = this.state.lastId;
         if (newState.length > 1) {
             newState.pop();
         }
-        this.setState({counters: newState, lastId: id});
+        if (id > 0) {
+            this.setState({counters: newState, lastId: id -1});
+        }
     };
 
     generaReset = () => {
@@ -85,16 +87,25 @@ class ParentContainer extends React.Component {
 
     renderCounters = () => {
         return this.state.counters.map((item) => {
-            return <CounterContainer 
-            value={item.value} 
-            id={item.id} 
-            key={item.id} 
-            increment={this.increment}
-            decrement={this.decrement}
-            reset={this.resetCounter}
+            return (
+            <CounterContainer 
+                value={item.value} 
+                id={item.id} 
+                key={item.id} 
+                increment={this.increment}
+                decrement={this.decrement}
+                reset={this.resetCounter}
             />
-        });
+        )});
     };
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        return prevState;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("This is previous state of App", snapshot)
+    }
 
     render() {
         return (
