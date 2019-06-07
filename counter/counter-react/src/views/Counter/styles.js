@@ -26,7 +26,7 @@ const output = {
     width: 200,
     padding: '10px 50px',
     borderRadius: '20px',
-    border: '2px solid #e0e0e0',
+    border: '1px solid #e0e0e0',
     textAlign: 'center',
     marginBottom: 50,
     boxShadow: 'inset 0px 0px 0px 10px black',
@@ -44,7 +44,7 @@ const counterWrapper = {
     width: 320,
     margin: '0 auto',
     borderRadius: 70,
-    marginBottom: 50
+    marginTop: 50
 }
 
 export {output, buttonsWrapper, counterWrapper};
