@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import ParentContainer from './containers/ParentContainer';
+import CounterContainer from './containers/CounterContainer';
 
 const App = () => {
   return (
     <div>
-      <ParentContainer />
+      <CounterContainer />
     </div>
   )
 }

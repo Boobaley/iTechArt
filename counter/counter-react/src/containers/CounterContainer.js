@@ -2,39 +2,41 @@ import React from 'react';
 import Counter from '../views/Counter/Counter';
 
 class CounterContainer extends React.Component {
-    handleAdd = () => {
-       this.props.increment(this.props.id);
-    };
-  
-    handleRemove = () => {
-      this.props.decrement(this.props.id);
-    };
-  
-    handleReset = () => {
-      this.props.reset(this.props.id);
-    };
+  constructor(props) {
+      super(props);
+      this.state = {
+        count: 0
+      }
 
-    componentDidMount() {
-        console.log(`Component # ${this.props.id + 1} rendered`);
+      this.handleRemove = this.handleRemove.bind(this);
+      this.handleReset = this.handleReset.bind(this);
+      this.handleAdd = this.handleAdd.bind(this);
     }
-
-    shouldComponentUpdate(nextProps) {
-        if (this.props.value !== nextProps.value) {
-            console.log(`Component # ${this.props.id + 1} changed`);
-            return true;
-        } else {
-            console.log(`Component # ${this.props.id + 1} not changed`);
-            return false;
-        }
-    };
     
-    componentWillUnmount() {
-        console.log(`Component # ${this.props.id + 1} unmounted`);
-    }
+    handleAdd() {
+      this.setState({ count: this.state.count + 1 });
+    };
+  
+    handleRemove() {
+      if (this.state.count > 0) {
+        this.setState({ count: this.state.count - 1 });
+      } else {
+        this.setState({ count: 0 });
+      }
+    };
+  
+    handleReset() {
+      this.setState({ count: 0 })
+    };
   
     render() {
       return (
-        <Counter value={this.props.value} add={this.handleAdd} remove={this.handleRemove} reset={this.handleReset}/> 
+        <Counter 
+          counterValue={this.state.count}
+          increment={this.handleAdd}
+          decrement={this.handleRemove} 
+          reset={this.handleReset}
+        /> 
       );
     };
 };
