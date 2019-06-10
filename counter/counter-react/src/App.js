@@ -11,11 +11,37 @@ const App = () => {
   return (
     <BrowserRouter>
         <div> 
-            <Route path='/' component={Tabs}/>
             <Switch>
-                <Route path='/about' component={About}/>
-                <Route path='/counters' component={ParentContainer}/>
-                <Route component={Error}/> 
+                <Route 
+                    exact
+                    path='/' 
+                    render={() =>
+                        <div>
+                            <Tabs current={null}/>
+                        </div>
+                    }
+                />
+                <Route 
+                    path='/about' 
+                    render={() =>
+                        <div>
+                            <Tabs current={0}/>
+                            <About/>
+                        </div>
+                    }
+                />
+                <Route 
+                    path='/counters' 
+                    render={() =>
+                        <div>
+                            <Tabs current={1}/>
+                            <ParentContainer/>
+                        </div>
+                    }
+                />
+                <Route render={() =>
+                    <Error/>
+                }/> 
             </Switch>
         </div>
     </BrowserRouter>

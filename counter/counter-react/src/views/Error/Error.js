@@ -1,9 +1,10 @@
 import React from 'react'
+import { errorMessage } from './style';
 
 const Error = () => {
     return (
-        <div style={{textAlign: "center", fontSize: 30}}>
-            404 Not Found
+        <div style={errorMessage}>
+            404 Not Found!
         </div>
     )
 }
