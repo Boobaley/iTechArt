@@ -14,15 +14,14 @@ const input = {
     marginRight: 20,
     outline: 'none',
     fontWeight: 600,
-    
-    lastOfType : {
-    borderRadius: 20,
-    border: '3px solid #a0a0a0',
-    backgroundColor: 'white',
-    padding: 20,
-    outline: 'none',
-    fontWeight: 600,
-    marginRight: 0
+      lastOfType: {
+        borderRadius: 20,
+        border: '3px solid #a0a0a0',
+        backgroundColor: 'white',
+        padding: 20,
+        outline: 'none',
+        fontWeight: 600,
+        marginRight: 0
     } 
 }
 

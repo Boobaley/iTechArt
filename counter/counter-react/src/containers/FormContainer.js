@@ -6,32 +6,31 @@ class FormContainer extends Component {
         super(props);
         this.state = {
             email: '',
-            password: '',
+            password: ''
         }
     }
 
     onHandleSubmit = (event) => {
         event.preventDefault();
-        console.log(`User Email: ${this.state.email} 
-User Password: ${this.state.password}`);
+        console.log(`User Email: ${this.state.email}  User Password: ${this.state.password}`);
         this.setState({email: '', password: ''});
         alert(JSON.stringify(this.state));
     }
 
-    onChangeEmail = (event) => {
+    onEmailChange = (event) => {
         this.setState({email: event.target.value});
     }
 
-    onChangePassword = (event) => {
+    onPasswordChange = (event) => {
         this.setState({password: event.target.value});
     }
 
     render() {
         return (
             <Form 
-                email={this.onChangeEmail}
+                email={this.onEmailChange}
                 emailOutput={this.state.email} 
-                password={this.onChangePassword} 
+                password={this.onPasswordChange} 
                 passwordOutput={this.state.password}
                 submit={this.onHandleSubmit}
             />
