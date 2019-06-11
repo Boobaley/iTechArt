@@ -4,6 +4,7 @@ import Tabs from '../Tabs/Tabs';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import About from '../About/About';
 import Error from '../Error/Error';
+import FormContainer from '../../containers/FormContainer';
 
 const Routes = () => {
     return (
@@ -34,6 +35,15 @@ const Routes = () => {
                             <div>
                                 <Tabs current={1}/>
                                 <ParentContainer/>
+                            </div>
+                        }
+                    />
+                    <Route 
+                        path='/login'
+                        render={() =>
+                            <div>
+                                <Tabs current={2}/>
+                                <FormContainer/>
                             </div>
                         }
                     />
