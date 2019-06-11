@@ -5,6 +5,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import About from '../About/About';
 import Error from '../Error/Error';
 import FormContainer from '../../containers/FormContainer';
+import ReduxFormContainer from '../../containers/ReduxFormContainer';
 
 const Routes = () => {
     return (
@@ -44,6 +45,15 @@ const Routes = () => {
                             <div>
                                 <Tabs current={2}/>
                                 <FormContainer/>
+                            </div>
+                        }
+                    />
+                    <Route 
+                        path='/login-redux'
+                        render={() =>
+                            <div>
+                                <Tabs current={3}/>
+                                <ReduxFormContainer/>
                             </div>
                         }
                     />
