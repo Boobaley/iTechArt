@@ -1,11 +1,16 @@
 import React from 'react';
-import { input, form, formTitle, button } from './style';
+import { input, form, formTitle, button, outputData } from './style';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import { changeEmailInput } from '../../actions/actionCreator';
+
 
 const ReduxForm = (props) => {
+    const { inputs } = props;
+    console.log(inputs)
     return (
         <React.Fragment>
-            <form style={form} onSubmit={props.submit}>
+            <form style={form}>
                 <div style={formTitle}>LOG IN WITH REDUX</div>
                 <div>
                     <input 
@@ -24,8 +29,15 @@ const ReduxForm = (props) => {
                 </div>
                 <Button type="submit" variant="outlined" color="primary" style={button}>Sign In</Button>
             </form>
+            <div style={outputData}>
+                <div>User Email: {inputs}</div>
+                <hr/>
+                <div>User Password:</div>
+            </div>
         </React.Fragment>
     );
   }
 
-export default ReduxForm;
+export default connect(state => ({
+    inputs: state.inputs
+}), { changeEmailInput })(ReduxForm);
