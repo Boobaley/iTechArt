@@ -30,7 +30,7 @@ const output = {
     textAlign: 'center',
     marginBottom: 50,
     boxShadow: 'inset 0px 0px 0px 10px black',
-    backgroundColor: '#3b3a3a'
+    backgroundColor: '#3b3a3a',
 }
 
 const buttonsWrapper = {

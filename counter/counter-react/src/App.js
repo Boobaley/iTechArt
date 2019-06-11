@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import ParentContainer from './containers/ParentContainer';
+import Routes from './views/Router/Routes';
+
+
 
 const App = () => {
   return (
-    <div>
-      <ParentContainer />
-    </div>
+    <Routes/>
   )
 }
 

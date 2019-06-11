@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from './styles';
 import {output, buttonsWrapper, counterWrapper} from './styles';
 
@@ -16,6 +15,6 @@ const Counter = (props) => {
     )
 }
 
-// s
+
 
 export default Counter;
