@@ -1,6 +1,16 @@
-import { combineReducers } from 'redux';
-import inputs from './inputs';
+import { CHANGE_EMAIL } from '../constants/action-types';
 
-const rootReducer = combineReducers({ inputs });
+const initialState = {
+    emailInput: '',
+    passwordInput: ''
+}
+
+const rootReducer = (state = initialState, action) => {
+    if (action.type === CHANGE_EMAIL) {
+        return Object.assign({}, state, {
+            emailInput: state.emailInput = action.text
+        });
+    }
+};
 
 export default rootReducer;

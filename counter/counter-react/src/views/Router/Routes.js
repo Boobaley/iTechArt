@@ -6,6 +6,8 @@ import About from '../About/About';
 import Error from '../Error/Error';
 import FormContainer from '../../containers/FormContainer';
 import ReduxFormContainer from '../../containers/ReduxFormContainer';
+import { Provider } from 'react-redux';
+import store from '../../js/store/store';
 
 const Routes = () => {
     return (
@@ -52,8 +54,10 @@ const Routes = () => {
                         path='/login-redux'
                         render={() =>
                             <div>
-                                <Tabs current={3}/>
-                                <ReduxFormContainer/>
+                                <Provider store={store}>
+                                    <Tabs current={3}/>
+                                    <ReduxFormContainer/>
+                                </Provider>
                             </div>
                         }
                     />

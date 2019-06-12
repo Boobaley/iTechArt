@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import ReduxForm from '../views/ReduxForm/ReduxForm';
-import { Provider } from 'react-redux';
-import store from '../store';
-class ReduxFormContainer extends Component {
+
+class ReduxFormContainer extends Component { 
+
+    handleEmailChange = (event) => {
+    }
+
+    handlePasswordChange = (event) => {
+    }
+
     render() {
         return (
-            <Provider store={store}>
-                <ReduxForm />
-            </Provider> 
+            <ReduxForm />
         );
     }
 }
