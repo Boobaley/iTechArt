@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "42114f0ed993ed75a4891cf962acc092",
+    "revision": "9f472009cbc19b28798614f0b66b327c",
     "url": "/iTechArt/index.html"
   },
   {
-    "revision": "8c32bc64689ff45299e1",
+    "revision": "237d3355e7c2997a9e8b",
     "url": "/iTechArt/static/css/main.a3378ab4.chunk.css"
   },
   {
-    "revision": "4e9fafd4266639ddc8d0",
-    "url": "/iTechArt/static/js/2.054b6769.chunk.js"
+    "revision": "c9f0e17d495251fd68b9",
+    "url": "/iTechArt/static/js/2.4589d6ee.chunk.js"
   },
   {
-    "revision": "8c32bc64689ff45299e1",
-    "url": "/iTechArt/static/js/main.83fdeb00.chunk.js"
+    "revision": "237d3355e7c2997a9e8b",
+    "url": "/iTechArt/static/js/main.b90777b3.chunk.js"
   },
   {
     "revision": "abd54cf09a04fdaf990b",
