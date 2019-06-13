@@ -1,17 +1,16 @@
 import React from 'react';
 import ParentContainer from '../../containers/ParentContainer';
 import Tabs from '../Tabs/Tabs';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import About from '../About/About';
 import Error from '../Error/Error';
 import FormContainer from '../../containers/FormContainer';
+import SuccessReduxForm from '../SuccessRedaxForm/SuccessRedaxForm';
 import ReduxFormContainer from '../../containers/ReduxFormContainer';
-import { Provider } from 'react-redux';
-import store from '../../js/store/store';
 
 const Routes = () => {
     return (
-        <HashRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div> 
                 <Switch>
                     <Route 
@@ -51,13 +50,22 @@ const Routes = () => {
                         }
                     />
                     <Route 
+                        exact
                         path='/login-redux'
                         render={() =>
+                            
                             <div>
-                                <Provider store={store}>
-                                    <Tabs current={3}/>
-                                    <ReduxFormContainer/>
-                                </Provider>
+                                <Tabs current={3}/>
+                                <ReduxFormContainer/>
+                            </div>
+                        }
+                    />
+                    <Route 
+                        path='/login-redux/success'
+                        render={() =>
+                            
+                            <div>
+                                <SuccessReduxForm/>
                             </div>
                         }
                     />
@@ -66,7 +74,7 @@ const Routes = () => {
                     }/> 
                 </Switch>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 
