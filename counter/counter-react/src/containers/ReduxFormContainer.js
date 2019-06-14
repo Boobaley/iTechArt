@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { changeEmail, changePassword } from '../actions/actionCreator';
 import { withRouter } from 'react-router-dom';
 
+const mapStateToProps = (state => ({
+    inputs: state.inputs
+}));
 
 class ReduxFormContainer extends Component { 
 
@@ -21,9 +24,9 @@ class ReduxFormContainer extends Component {
         event.preventDefault();
         this.props.history.replace('/login-redux/success');
     }
-
     render() {
         const { inputs } = this.props;
+        
 
         return (
             <ReduxForm 
@@ -37,6 +40,4 @@ class ReduxFormContainer extends Component {
     }
 }
 
-export default connect(state => ({
-    inputs: state.inputs
-}), { changeEmail, changePassword })(withRouter(ReduxFormContainer));
+export default withRouter(connect(mapStateToProps, {changeEmail, changePassword})(ReduxFormContainer));

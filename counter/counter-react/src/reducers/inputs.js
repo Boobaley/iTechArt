@@ -9,11 +9,9 @@ const inputs = (state = initialState, {text, type}) => {
         case CHANGE_EMAIL:
             return Object.assign({}, state, {
                 email: text,
-                password: state.password
             });
         case CHANGE_PASSWORD:
             return Object.assign({}, state, {
-                email: state.email,
                 password: text
             })
         default:

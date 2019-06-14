@@ -12,6 +12,8 @@ const SuccessReduxForm = (props) => {
     )
 }
 
-export default connect(state => ({
+const mapStateToProps = state => ({
     inputs: state.inputs
-}))(SuccessReduxForm);
+})
+
+export default connect(mapStateToProps)(SuccessReduxForm);

@@ -53,7 +53,6 @@ const Routes = () => {
                         exact
                         path='/login-redux'
                         render={() =>
-                            
                             <div>
                                 <Tabs current={3}/>
                                 <ReduxFormContainer/>
@@ -63,7 +62,6 @@ const Routes = () => {
                     <Route 
                         path='/login-redux/success'
                         render={() =>
-                            
                             <div>
                                 <SuccessReduxForm/>
                             </div>
@@ -77,6 +75,5 @@ const Routes = () => {
         </BrowserRouter>
     );
 }
-
 
 export default Routes;
