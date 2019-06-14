@@ -2,18 +2,17 @@ import React from 'react';
 import { input, form, formTitle, button, outputData } from './style';
 import Button from '@material-ui/core/Button';
 
-const Form = (props) => {
+const ReduxForm = (props) => {
     return (
         <React.Fragment>
-            <form style={form} onSubmit={props.submit}>
-                <div style={formTitle}>LOG IN</div>
+            <form style={form} onSubmit={props.onSubmit}>
+                <div style={formTitle}>LOG IN WITH REDUX</div>
                 <div>
                     <input 
                         type="email" 
                         placeholder="Email" 
                         style={input}
-                        onChange={props.email}
-                        value={props.emailOutput}
+                        onChange={props.emailInputChange}
                         required
                     />
                     <input 
@@ -21,8 +20,7 @@ const Form = (props) => {
                         minLength="6"
                         placeholder="Password" 
                         style={input && input.lastOfType}
-                        onChange={props.password}
-                        value={props.passwordOutput}
+                        onChange={props.passwordInputChange}
                         required
                     />
                 </div>
@@ -37,4 +35,4 @@ const Form = (props) => {
     );
   }
 
-export default Form;
+export default ReduxForm;
