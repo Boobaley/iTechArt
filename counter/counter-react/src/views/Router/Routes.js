@@ -7,6 +7,8 @@ import Error from '../Error/Error';
 import FormContainer from '../../containers/FormContainer';
 import SuccessReduxForm from '../SuccessRedaxForm/SuccessRedaxForm';
 import ReduxFormContainer from '../../containers/ReduxFormContainer';
+import ReduxFormLibContainer from '../../containers/ReduxFormLibContainer';
+import SuccessReduxFormLib from '../SuccessReduxFormLib/SuccessReduxFormLib';
 
 const Routes = () => {
     return (
@@ -64,6 +66,24 @@ const Routes = () => {
                         render={() =>
                             <div>
                                 <SuccessReduxForm/>
+                            </div>
+                        }
+                    />
+                    <Route 
+                        exact
+                        path='/login-redux-form'
+                        render={() =>
+                            <div>
+                                <Tabs current={4}/>
+                                <ReduxFormLibContainer/>
+                            </div>
+                        }
+                    />
+                    <Route 
+                        path='/login-redux-form/success'
+                        render={() =>
+                            <div>
+                                <SuccessReduxFormLib/>
                             </div>
                         }
                     />

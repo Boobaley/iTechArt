@@ -33,6 +33,7 @@ const useStyles = makeStyles({
           <Tab label="Counters" component={Link} to="/counters"/>
           <Tab label="Log In" component={Link} to="/login"/>
           <Tab label="Log In With Redux" component={Link} to="/login-redux"/>
+          <Tab label="Log In With Redux Form" component={Link} to="/login-redux-form"/>
         </Tabs>
       </Paper>
     );

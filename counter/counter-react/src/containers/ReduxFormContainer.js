@@ -27,7 +27,6 @@ class ReduxFormContainer extends Component {
     render() {
         const { inputs } = this.props;
         
-
         return (
             <ReduxForm 
                 emailInputChange={this.handleEmailChange}
