@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/iTechArt/static/css/main.a3378ab4.chunk.css",
-    "main.js": "/iTechArt/static/js/main.2e4637d1.chunk.js",
-    "main.js.map": "/iTechArt/static/js/main.2e4637d1.chunk.js.map",
+    "main.js": "/iTechArt/static/js/main.d2e3a9fd.chunk.js",
+    "main.js.map": "/iTechArt/static/js/main.d2e3a9fd.chunk.js.map",
     "runtime~main.js": "/iTechArt/static/js/runtime~main.8ad7a516.js",
     "runtime~main.js.map": "/iTechArt/static/js/runtime~main.8ad7a516.js.map",
     "static/js/2.66e33e67.chunk.js": "/iTechArt/static/js/2.66e33e67.chunk.js",
     "static/js/2.66e33e67.chunk.js.map": "/iTechArt/static/js/2.66e33e67.chunk.js.map",
     "index.html": "/iTechArt/index.html",
-    "precache-manifest.4b13d27785456db4be2c36c94bb446ff.js": "/iTechArt/precache-manifest.4b13d27785456db4be2c36c94bb446ff.js",
+    "precache-manifest.de55eb50fd66ce236bfa25f8a5c10189.js": "/iTechArt/precache-manifest.de55eb50fd66ce236bfa25f8a5c10189.js",
     "service-worker.js": "/iTechArt/service-worker.js",
     "static/css/main.a3378ab4.chunk.css.map": "/iTechArt/static/css/main.a3378ab4.chunk.css.map"
   }
